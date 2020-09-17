@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>From サンプル</title>
+    <style>
+        div {
+            margin-left: 10px;
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+
+    {% if filename %}
+        ファイル1： {{ filename }}<br>
+    {% endif %}
+    {% if text %}
+        テキスト1：{{ text }}<br>
+    {% endif %}
+    {% if radio %}
+        ラジオ：{{ radio }}<br>
+    {% endif %}
+    {% if check %}
+        チェックボックス：{{ check }}<br>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+        <div>
+            <label>
+                テキスト1：
+                <input type="text" name="text1">
+            </label>
+        </div>
+        <div>
+            <label>
+                ラジオ1：
+                <input type="radio" id="r1" name="radio" value="1">
+            </label><br>
+            <label>
+                ラジオ2：
+                <input type="radio" id="r2" name="radio" value="2"> <!-- CHECK -->
+            </label><br>
+            <label>
+                ラジオ3：
+                <input type="radio" id="r3" name="radio" value="3">
+            </label>
+        </div>
+        <div>
+            <label>
+                チェックボックス1：
+                <input type="checkbox" id="ck1" name="check" value="1"> <!-- CHECK -->
+            </label><br>
+            <label>
+                チェックボックス2：
+                <input type="checkbox" id="ck2" name="check" value="2">
+            </label><br>
+            <label>
+                チェックボックス3：
+                <input type="checkbox" id="ck3" name="check" value="3">
+            </label>
+        </div>
+        <div>
+            <label>
+                ファイル1：
+                <input type="file" name="file1"><br />
+            </label>
+        </div>
+        <div>
+            <input type="submit" value="add">
+        </div>
+    </form>
+
+</body>
+</html>
